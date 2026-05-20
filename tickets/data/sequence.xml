@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="seq_tickets" model="ir.sequence">
+            <field name="name">Ticket Sequence</field>
+            <field name="code">tickets</field>
+            <field name="prefix">vksk/</field>
+            <field name="padding">4</field>
+        </record>
+    </data>
+</odoo>

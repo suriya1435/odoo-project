@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <!-- Sequence -->
+        <record id="seq_student_arch" model="ir.sequence">
+            <field name="name">Student Sequence</field>
+            <field name="code">student.arch</field>
+            <field name="prefix">TKT/</field>
+            <field name="padding">4</field>
+        </record>
+
+        <!-- Action -->
+        <record id="action_student_arch" model="ir.actions.act_window">
+            <field name="name">Students</field>
+            <field name="res_model">student.arch</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Menu -->
+        <menuitem id="menu_student_root"
+                  name="Student arch"
+                  sequence="10"
+                  action="action_student_arch"
+                  application="True"/>
+
+        <!-- Form View -->
+        <record id="view_student_arch_form" model="ir.ui.view">
+            <field name="name">student.arch.form</field>
+            <field name="model">student.arch</field>
+            <field name="arch" type="xml">
+                <form string="Student">
+                    <sheet>
+                        <group>
+                            <field name="partner_id"/>
+                            <field name="age"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Tree View -->
+        <record id="view_student_arch_tree" model="ir.ui.view">
+            <field name="name">student.arch.tree</field>
+            <field name="model">student.arch</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="partner_id"/>
+                    <field name="age"/>
+                </tree>
+            </field>
+        </record>
+
+    </data>
+</odoo>
