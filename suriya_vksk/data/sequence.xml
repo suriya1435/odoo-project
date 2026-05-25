@@ -1,0 +1,8 @@
+<odoo>
+    <record id="seq_hotel_bill" model="ir.sequence">
+        <field name="name">Hotel Bill</field>
+        <field name="code">hotel.bill</field>
+        <field name="prefix">HB/</field>
+        <field name="padding">4</field>
+    </record>
+</odoo>

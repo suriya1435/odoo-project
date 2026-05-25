@@ -1,0 +1,25 @@
+<odoo>
+
+    <menuitem id="hotel_billing_root_menu"
+              name="Hotel Billing"
+              sequence="1"/>
+
+    <menuitem id="hotel_bill_menu"
+              name="Bills"
+              parent="hotel_billing_root_menu"
+              action="hotel_bill_action"
+              sequence="1"/>
+
+    <menuitem id="hotel_sales_report_menu"
+              name="Sales Report"
+              parent="hotel_billing_root_menu"
+              action="hotel_sales_report_action"
+              sequence="2"/>
+
+    <menuitem id="hotel_product_menu"
+              name="Food Products"
+              parent="hotel_billing_root_menu"
+              action="product.product_normal_action_sell"
+              sequence="3"/>
+
+</odoo>

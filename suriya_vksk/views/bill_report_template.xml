@@ -1,0 +1,208 @@
+<odoo>
+
+    <template id="hotel_bill_template">
+
+        <t t-call="web.html_container">
+
+            <t t-foreach="docs" t-as="o">
+
+                <div class="page"
+                     style="padding:20px;
+                            font-family:Arial;">
+
+                    <!-- Company Header -->
+
+                    <div style="text-align:center;">
+
+                        <!-- Company Logo -->
+
+                        <img t-if="o.company_id.logo"
+                             t-att-src="image_data_uri(o.company_id.logo)"
+                             style="max-height:100px;"/>
+
+                        <!-- Company Name -->
+
+                        <h1>
+                            <span t-field="o.company_id.name"/>
+                        </h1>
+
+                        <!-- Address -->
+
+                        <div>
+                            <span t-field="o.company_id.street"/>
+                        </div>
+
+                        <!-- Phone -->
+
+                        <div>
+                            <strong>Phone:</strong>
+                            <span t-field="o.company_id.phone"/>
+                        </div>
+
+                        <!-- GST -->
+
+                        <div>
+                            <strong>GSTIN:</strong>
+                            <span t-field="o.company_id.vat"/>
+                        </div>
+
+                    </div>
+
+                    <hr style="margin-top:20px;
+                               margin-bottom:20px;"/>
+
+                    <!-- Bill Title -->
+
+                    <h1 style="text-align:center;">
+                        HOTEL BILL
+                    </h1>
+
+                    <br/>
+
+                    <!-- Bill Details -->
+
+                    <table style="width:100%;
+                                  font-size:16px;">
+
+                        <tr>
+
+                            <td>
+                                <strong>Bill No:</strong>
+                                <span t-field="o.name"/>
+                            </td>
+
+                            <td>
+                                <strong>Date:</strong>
+                                <span t-field="o.bill_date"/>
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>
+                                <strong>Server Name:</strong>
+                                <span t-field="o.server_name"/>
+                            </td>
+
+                            <td>
+                                <strong>Table Number:</strong>
+                                <span t-field="o.table_number"/>
+                            </td>
+
+                        </tr>
+
+                    </table>
+
+                    <br/><br/>
+
+                    <!-- Product Table -->
+
+                    <table style="width:100%;
+                                  border-collapse:collapse;">
+
+                        <thead>
+
+                            <tr style="background:#d3d3d3;">
+
+                                <th style="border:1px solid black;
+                                           padding:8px;">
+                                    Product
+                                </th>
+
+                                <th style="border:1px solid black;
+                                           padding:8px;">
+                                    Qty
+                                </th>
+
+                                <th style="border:1px solid black;
+                                           padding:8px;">
+                                    Price
+                                </th>
+
+                                <th style="border:1px solid black;
+                                           padding:8px;">
+                                    Subtotal
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            <tr t-foreach="o.line_ids" t-as="line">
+
+                                <td style="border:1px solid black;
+                                           padding:8px;">
+                                    <span t-field="line.product_id"/>
+                                </td>
+
+                                <td style="border:1px solid black;
+                                           padding:8px;">
+                                    <span t-field="line.quantity"/>
+                                </td>
+
+                                <td style="border:1px solid black;
+                                           padding:8px;">
+
+                                    <span t-esc="'Rs. %.2f' % line.price"/>
+
+                                </td>
+
+                                <td style="border:1px solid black;
+                                           padding:8px;">
+
+                                    <span t-esc="'Rs. %.2f' % line.subtotal"/>
+
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                    <br/>
+
+                    <!-- Total -->
+
+                    <div style="text-align:right;
+                                font-size:28px;">
+
+                        <strong>Total Amount :</strong>
+
+                        <span t-esc="'Rs. %.2f' % o.total_amount"/>
+
+                    </div>
+
+                    <br/><br/><br/>
+
+                    <!-- Signature -->
+
+                    <div style="text-align:right;">
+
+                        <strong>Authorized Signature</strong>
+
+                    </div>
+
+                    <br/><br/>
+
+                    <!-- Footer -->
+
+                    <div style="text-align:center;
+                                font-size:18px;">
+
+                        Thank You Visit Again
+
+                    </div>
+
+                </div>
+
+            </t>
+
+        </t>
+
+    </template>
+
+</odoo>
